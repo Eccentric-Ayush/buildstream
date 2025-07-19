@@ -1486,7 +1486,7 @@ class Element(Plugin):
             # incremental builds should merge the source into the last artifact before staging
             last_build_artifact = self.__get_last_build_artifact()
             if last_build_artifact:
-                self.info("Incremental build")
+                self.info("[EXEC] Incremental build")
                 last_sources = last_build_artifact.get_sources()
                 import_dir = last_build_artifact.get_buildtree()
                 import_dir._apply_changes(last_sources, staged_sources)
@@ -1878,7 +1878,7 @@ class Element(Plugin):
                 if not success:
 
                     self.info(
-                        "Discarded failed build",
+                        "[EXEC] Discarded failed build",
                         detail="Discarded '{}'\n".format(artifact.strong_key)
                         + "because retrying failed builds is enabled.",
                     )
@@ -1934,7 +1934,7 @@ class Element(Plugin):
                     else:
                         reason = "in non strict mode because intermediate dependencies may have changed."
                     self.info(
-                        "Discarded failed build",
+                        "[EXEC] Discarded failed build",
                         detail="Discarded '{}'\n{}".format(artifact.strong_key, reason),
                     )
 

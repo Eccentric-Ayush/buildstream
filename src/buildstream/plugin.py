@@ -336,7 +336,7 @@ class Plugin:
         # Infer the kind identifier
         modulename = type(self).__module__
         self.__kind = modulename.rsplit(".", maxsplit=1)[-1]
-        self.debug("Created: {}".format(self))
+        self.debug("[EXEC] Created: {}".format(self))
 
     def __del__(self):
         # Dont send anything through the Message() pipeline at destruction time,
